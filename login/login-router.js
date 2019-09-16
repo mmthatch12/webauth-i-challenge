@@ -21,8 +21,14 @@ router.post('/register', (req, res) => {
 
     const hash = bcrypt.hashSync(password, 10)
 
-    users.createUser({ username, password: hash })
-
+    Login.createUser({ username, password: hash })
+        .then(saved => {
+            res.status(201).json(saved)
+        })
+        .catch(error => {
+            console.log(error)
+            res.status(500).json({ error: 'Could not create user' })
+        })
 })
 
 

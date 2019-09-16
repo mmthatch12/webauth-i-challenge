@@ -13,6 +13,9 @@ function find() {
 function createUser(cred) {
     return db('users')
         .insert(cred)
+        .then(([user]) => {
+            return user
+        })
 }
 
 function login(cred) {
