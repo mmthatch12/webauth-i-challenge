@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 
 const LoginRouter = require('../login/login-router')
 
@@ -6,6 +7,7 @@ const server = express()
 
 server.use(express.json())
 server.use('/login', LoginRouter)
+server.use(cors())
 
 server.get('/', (req, res) => {
     res.send('Sanity check')
