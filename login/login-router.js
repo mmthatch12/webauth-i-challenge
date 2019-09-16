@@ -1,11 +1,13 @@
 const express = require('express')
 const bcrypt = require('bcrypt')
 
+const restricted = require('../auth/login-middleware')
+
 const Login = require('./login-model')
 
 const router = express.Router()
 
-router.get('/users', (req, res) => {
+router.get('/users', restricted, (req, res) => {
     Login.find()
         .then(users => {
             res.status(200).json(users)
