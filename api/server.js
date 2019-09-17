@@ -28,7 +28,7 @@ const sessionConfig = {
 server.use(express.json())
 server.use(cors({
     credentials: true,
-    origin: 'http://http://localhost:3000',
+    origin: 'http://localhost:3000',
 }))
 server.use(session(sessionConfig))
 
