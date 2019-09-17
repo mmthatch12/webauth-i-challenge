@@ -26,7 +26,9 @@ const sessionConfig = {
 }
 
 server.use(express.json())
-server.use(cors())
+server.use(cors({
+    credentials: true,
+}))
 server.use(session(sessionConfig))
 
 server.use('/login', LoginRouter)
